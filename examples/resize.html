@@ -5,18 +5,20 @@
 		<script src="../lib/leap-plugins-0.1.11.js"></script>
 		<script src="../lib/leap.rigged-hand-0.1.7.js"></script>
 		<script src="../src/leap-motion-hand-grabbing.js"></script>
+		<script src="../src/leap-motion-hand-resizing.js"></script>
 		<script src="leapUtils.js"></script>
 		
 		<script>
 			window.onload = function () {
 				var controller = LeapUtils.createController();
 				controller.use("leap-motion-hand-grabbing", { leftHand: true, rightHand: true, debug: false });
+				controller.use("leap-motion-hand-resizing");
 				
 				// Right hand can grab the box
 				TouchInfo.rightHand.add( document.querySelector("a-box").object3D);
 				
 				// Left hand can grab the box
-				TouchInfo.leftHand.add( document.querySelector("a-box").object3D);
+				TouchInfo.leftHand.add( document.querySelector("a-box").object3D)
 			}
 		</script>
 	</head>
