@@ -39,8 +39,7 @@ Leap.plugin('leap-motion-hand-resizing', function(scope){
 			// Resize the object
 			var box = new THREE.Box3().setFromObject(objectToResize);
 			var boxSize = box.size();
-			var maxCurrentDimension = Math.max(boxSize.x, Math.max(boxSize.y, boxSize.z));
-			var scaleFactor = distanceBetweenFingers / maxCurrentDimension;
+			var scaleFactor = distanceBetweenFingers / boxSize.x;
 			objectToResize.scale.multiplyScalar(scaleFactor);
 			
 			// Center the object between and in front of the hands
